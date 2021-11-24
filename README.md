@@ -1,1 +1,1 @@
-HELLO
+# Python semester project
