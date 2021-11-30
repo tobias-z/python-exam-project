@@ -15,3 +15,4 @@ def get_browser(url: str):
     browser.get(url)
     browser.implicitly_wait(2)
     return browser
+
