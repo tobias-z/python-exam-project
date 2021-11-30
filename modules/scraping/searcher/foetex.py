@@ -27,7 +27,7 @@ def get_foetex_page(search_name: str):
 if __name__ == "__main__":
     name = "Cornflakes".lower()
     soup = BeautifulSoup(get_foetex_page(name), "html.parser")
-    tags = soup.find_all("div > div > a", href=True)
+    tags = soup.find_all("a", href=True)
     for a in tags:
         url = a["href"]
         if name and "/produkt" in url:
