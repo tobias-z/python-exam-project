@@ -12,4 +12,6 @@ def get_irma_page(search_name: str):
     elem.submit()
 
     sleep(3)
+    print(browser.page_source)
+
     return browser.page_source
