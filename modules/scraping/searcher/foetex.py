@@ -7,6 +7,7 @@ from concurrent.futures import ThreadPoolExecutor
 from lxml import etree
 
 from exam_project.modules.scraping.cereal import Cereal, Nutrition
+from exam_project.modules.scraping.searcher.utils import make_float, remove_chars
 
 ROOT_URL = "https://hjem.foetex.dk"
 
@@ -34,7 +35,7 @@ def get_foetex_page(search_name: str) -> List[Cereal]:
     browser.close()
 
     with ThreadPoolExecutor(len(links)) as ex:
-        return list(filter(lambda c: c != None, ex.map(__get_single_cereal, links)))
+        return list(filter(None, ex.map(__get_single_cereal, links)))
 
 
 def __get_links(page_source) -> List[str]:
@@ -60,12 +61,12 @@ def __get_single_cereal(link: str) -> Cereal:
     brand = dom.xpath(
         '//*[@id="__next"]/div[1]/main/div[1]/div[1]/section[2]/article/div[4]/span/strong'
     )[0].text
-    price = __make_float(
+    price = make_float(
         dom.xpath(
             '//*[@id="__next"]/div[1]/main/div[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div/span/text()[4]'
         )[0]
     )
-    grams = __make_float(
+    grams = make_float(
         dom.xpath(
             '//*[@id="__next"]/div[1]/main/div[1]/div[1]/section[2]/article/div[4]/span/text()[2]'
         )[0]
@@ -120,15 +121,7 @@ def __get_nutrition(tbody_html, name: str):
         if text == name:
             stop = True
 
-    return __make_float(__remove_chars(items[-1]))
-
-
-def __make_float(danish_number: str) -> float:
-    return float(danish_number.replace(",", "."))
-
-
-def __remove_chars(number_with_string: str) -> str:
-    return number_with_string.replace(" g", "")
+    return make_float(remove_chars(items[-1]))
 
 
 if __name__ == "__main__":
