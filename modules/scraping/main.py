@@ -1,9 +1,8 @@
 from typing import List
-from exam_project.modules.scraping.cereal import Cereal
+#from exam_project.modules.scraping.cereal import Cereal
 from searcher.foetex import get_foetex_page
 from searcher.irma import get_irma_page
 from searcher.nemlig import get_nemlig_page
-
 
 def get_cerial(name: str, brand: str) -> List[Cereal]:
     cerials: List[Cereal] = list()
