@@ -1,12 +1,12 @@
 from time import sleep
 from typing import List
 
-from browser import get_browser
 from bs4 import BeautifulSoup
 from concurrent.futures import ThreadPoolExecutor
 from lxml import etree
 
 from exam_project.modules.scraping.cereal import Cereal, Nutrition
+from exam_project.modules.scraping.searcher.browser import get_browser
 from exam_project.modules.scraping.searcher.utils import make_float, remove_chars
 
 ROOT_URL = "https://hjem.foetex.dk"
@@ -34,7 +34,8 @@ def get_foetex_page(search_name: str) -> List[Cereal]:
 
     browser.close()
 
-    with ThreadPoolExecutor(len(links)) as ex:
+    threads = min(len(links), 6)
+    with ThreadPoolExecutor(threads) as ex:
         return list(filter(None, ex.map(__get_single_cereal, links)))
 
 
