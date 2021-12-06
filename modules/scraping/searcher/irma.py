@@ -4,9 +4,9 @@ from concurrent.futures import ThreadPoolExecutor
 from bs4 import BeautifulSoup
 from lxml import etree
 
-from exam_project.modules.scraping.cereal import Cereal, Nutrition
-from exam_project.modules.scraping.searcher.browser import get_browser
-from exam_project.modules.scraping.searcher.utils import make_float, remove_chars
+from modules.scraping.cereal import Cereal, Nutrition
+from modules.scraping.searcher.browser import get_browser
+from modules.scraping.searcher.utils import make_float, remove_chars
 
 
 def get_irma_page(search_name: str) -> List[Cereal]:

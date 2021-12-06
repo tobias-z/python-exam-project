@@ -1,15 +1,19 @@
-from typing import List
-from exam_project.modules.scraping.cereal import Cereal
-from searcher.foetex import get_foetex_page
-from searcher.irma import get_irma_page
-from searcher.nemlig import get_nemlig_page
+import itertools
+from typing import List, Tuple
+from modules.scraping.cereal import Cereal
+from modules.scraping.searcher.foetex import get_foetex_page
+from modules.scraping.searcher.irma import get_irma_page
+from modules.scraping.searcher.nemlig import get_nemlig_page
 from concurrent.futures import ThreadPoolExecutor
 
 
-def get_cerial(name: str, brand: str) -> List[Cereal]:
+def get_cereal(cereal: Tuple[str, str]) -> List[Cereal]:
+    """Finds a single cerial"""
+    name, brand = cereal
+    name = name.lower()
+
     # get_nemlig_page
     callbacks = [get_foetex_page, get_irma_page]
-    name = name.lower()
 
     def get_website(cb) -> List[Cereal]:
         return cb(name)
@@ -20,10 +24,18 @@ def get_cerial(name: str, brand: str) -> List[Cereal]:
     return [*res.__next__(), *res.__next__()]
 
 
+def get_cereals(*cereals: Tuple[str, str]):
+    """Finds each cereal in parallel"""
+    with ThreadPoolExecutor(len(cereals)) as ex:
+        res = ex.map(get_cereal, cereals)
+
+    return list(itertools.chain(*res))
+
+
 if __name__ == "__main__":
-    cereals = get_cerial("Musli", "Kellogs")
-    print(len(cereals))
-    for cereal in cereals:
+    c = get_cereals(("Cornflakes", "Kellogg's"), ("Musli", "Something"))
+    print(len(c))
+    for cereal in c:
         print(
             cereal.name,
             cereal.brand,
