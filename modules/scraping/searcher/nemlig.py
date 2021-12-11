@@ -1,5 +1,6 @@
 from typing import Mapping
 from time import sleep
+from lxml import etree
 from concurrent.futures import ThreadPoolExecutor
 from modules.scraping.searcher.utils import make_float, remove_chars
 from modules.scraping.cereal import Cereal, Nutrition
@@ -38,7 +39,7 @@ def get_nemlig_page(search_name: str):
 
     browser.close()
 
-    threads = min(len(links), 6)
+    threads = min(len(links), 3)
     with ThreadPoolExecutor(threads) as ex:
         return list(ex.map(__get_single_cereal, links))
 
@@ -46,11 +47,10 @@ def get_nemlig_page(search_name: str):
 def __get_single_cereal(link: str) -> Cereal:
 
     browser = get_browser(link)
-
     sleep(3)
 
     navn = browser.find_element_by_xpath(
-        '//*[@id="page-content"]/div/productdetailpage/section/div[1]/render-partial/div/product-detail/accordion-group/div/div/div[2]/accordion/div[2]/content/div[4]/span[2]'
+        '//*[@id="page-content"]/div/productdetailpage/section/div[1]/render-partial/div/product-detail/accordion-group/div/div/div[2]/h1'
     ).get_attribute("innerText")
     maerke = browser.find_element_by_xpath(
         '//*[@id="page-content"]/div/productdetailpage/section/div[1]/render-partial/div/product-detail/accordion-group/div/div/div[2]/accordion/div[2]/content/div[1]/span[2]'
@@ -65,70 +65,71 @@ def __get_single_cereal(link: str) -> Cereal:
         '//*[@id="page-content"]/div/productdetailpage/section/div[1]/render-partial/div/product-detail/accordion-group/div/div/div[2]/h2'
     ).get_attribute("innerHTML")
 
-    fedt = (
-        browser.find_element_by_xpath(
-            '//*[@id="page-content"]/div/productdetailpage/section/div[1]/render-partial/div/product-detail/accordion-group/div/div/div[1]/div/product-detail-declaration/div[1]/table/tbody/tr[3]/td[2][text()]'
-        )
-        .get_attribute("innerText")
-        .split("''")
-    )
-    kulhydrat = (
-        browser.find_element_by_xpath(
-            '//*[@id="page-content"]/div/productdetailpage/section/div[1]/render-partial/div/product-detail/accordion-group/div/div/div[1]/div/product-detail-declaration/div[1]/table/tbody/tr[5]/td[2][text()]'
-        )
-        .get_attribute("innerText")
-        .split("''")
-    )
-    protein = (
-        browser.find_element_by_xpath(
-            '//*[@id="page-content"]/div/productdetailpage/section/div[1]/render-partial/div/product-detail/accordion-group/div/div/div[1]/div/product-detail-declaration/div[1]/table/tbody/tr[8]/td[2][text()]'
-        )
-        .get_attribute("innerText")
-        .split("''")
-    )
-    salt = (
-        browser.find_element_by_xpath(
-            '//*[@id="page-content"]/div/productdetailpage/section/div[1]/render-partial/div/product-detail/accordion-group/div/div/div[1]/div/product-detail-declaration/div[1]/table/tbody/tr[9]/td[2][text()]'
-        )
-        .get_attribute("innerText")
-        .split("''")
-    )
-    fiber = (
-        browser.find_element_by_xpath(
-            '//*[@id="page-content"]/div/productdetailpage/section/div[1]/render-partial/div/product-detail/accordion-group/div/div/div[1]/div/product-detail-declaration/div[1]/table/tbody/tr[7]/td[2][text()]'
-        )
-        .get_attribute("innerText")
-        .split("''")
-    )
+    nutritions = __get_nutritions(browser)
+
+    fat = make_float(nutritions.get("Fedt").replace("g", ""))
+    carbohydrates = make_float(nutritions.get("Kulhydrat").replace("g", ""))
+    protein = make_float(nutritions.get("Protein").replace("g", ""))
+    salt = make_float(nutritions.get("Salt").replace("g", ""))
+
+    fiber = nutritions.get("Kostfibre")
+    if fiber:
+        fiber = make_float(nutritions.get("Kostfibre").replace("g", ""))
+    else:
+        fiber = 0
 
     browser.close()
 
     name = navn
     brand = maerke
     price = float(pris1 + "." + pris2)
-    gram = float(gram.replace(" g / Kellogg's", ""))
-
-    fat = make_float(remove_chars(fedt[0]))
-    carbohydrates = make_float(remove_chars(kulhydrat[0]))
-    protein = make_float(remove_chars(protein[0]))
-    salt = make_float(remove_chars(salt[0]))
-    fiber = make_float(remove_chars(fiber[0]))
+    gram = float(gram.split(" ")[0])
 
     return Cereal(
         name, brand, price, gram, Nutrition(protein, salt, carbohydrates, fat, fiber)
     )
 
 
+def __get_nutritions(browser):
+    tbody = browser.find_element_by_xpath(
+        '//*[@id="page-content"]/div/productdetailpage/section/div[1]/render-partial/div/product-detail/accordion-group/div/div/div[1]/div/product-detail-declaration/div[1]/table/tbody'
+    ).get_attribute("innerHTML")
+    html = etree.HTML(tbody)
+
+    items = {}
+
+    # key = None - Protein
+    # if key == None -> key = Protein
+    # key is not None -> {key: value}
+    # key = None
+
+    for tr in html.iter("tr"):
+        tds = tr.findall("td")
+        key = None
+        for td in tds:
+            for item in td.itertext():
+                value = item.replace(" ", "").replace("\n", "")
+                if value:
+                    if key is None:
+                        key = value
+                    else:
+                        items.setdefault(key, value)
+                        key = None
+
+    return items
+
+
 if __name__ == "__main__":
-    cereal = get_nemlig_page("Cornflakes")
-    print(
-        cereal.name,
-        cereal.brand,
-        cereal.grams,
-        cereal.price,
-        cereal.nutrition.fat,
-        cereal.nutrition.protein,
-        cereal.nutrition.carbohydrates,
-        cereal.nutrition.fiber,
-        cereal.nutrition.salt,
-    )
+    cereals = get_nemlig_page("Cornflakes")
+    for cereal in cereals:
+        print(
+            cereal.name,
+            cereal.brand,
+            cereal.grams,
+            cereal.price,
+            cereal.nutrition.fat,
+            cereal.nutrition.protein,
+            cereal.nutrition.carbohydrates,
+            cereal.nutrition.fiber,
+            cereal.nutrition.salt,
+        )

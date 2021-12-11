@@ -29,7 +29,7 @@ def get_irma_page(search_name: str) -> List[Cereal]:
     )
 
     browser.close()
-    threads = min(len(links), 4)
+    threads = min(len(links), 3)
     with ThreadPoolExecutor(threads) as ex:
         return list(ex.map(__get_single_page, links))
 
