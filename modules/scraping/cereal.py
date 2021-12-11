@@ -25,6 +25,7 @@ class Cereal:
         price: Dict[str, float],
         grams: float,
         is_original: bool,
+        calories: str,
         nutrition: Nutrition,
     ) -> None:
         self.name = name
@@ -32,4 +33,5 @@ class Cereal:
         self.price = price
         self.grams = grams
         self.is_original = is_original
+        self.calories = calories
         self.nutrition = nutrition
