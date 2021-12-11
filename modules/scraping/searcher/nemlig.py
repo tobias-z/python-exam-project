@@ -1,8 +1,8 @@
-from typing import Mapping
+from typing import Mapping, Tuple
 from time import sleep
 from lxml import etree
 from concurrent.futures import ThreadPoolExecutor
-from modules.scraping.searcher.utils import make_float, remove_chars
+from modules.scraping.searcher.utils import get_original, make_float, remove_chars
 from modules.scraping.cereal import Cereal, Nutrition
 from modules.scraping.searcher.browser import get_browser
 
@@ -17,7 +17,7 @@ def __get_links(list):
     return links
 
 
-def get_nemlig_page(search_name: str):
+def get_nemlig_page(search_name: str, brand: str):
     browser = get_browser("https://www.nemlig.com/")
 
     # click on cookie accept
@@ -39,12 +39,15 @@ def get_nemlig_page(search_name: str):
 
     browser.close()
 
+    links_with_name_and_brand = map(lambda link: (link, search_name, brand), links)
+
     threads = min(len(links), 3)
     with ThreadPoolExecutor(threads) as ex:
-        return list(ex.map(__get_single_cereal, links))
+        return list(ex.map(__get_single_cereal, links_with_name_and_brand))
 
 
-def __get_single_cereal(link: str) -> Cereal:
+def __get_single_cereal(params: Tuple[str, str, str]) -> Cereal:
+    link, search_name, the_brand = params
 
     browser = get_browser(link)
     sleep(3)
@@ -85,8 +88,21 @@ def __get_single_cereal(link: str) -> Cereal:
     price = float(pris1 + "." + pris2)
     gram = float(gram.split(" ")[0])
 
+    is_original = search_name + the_brand == name + brand
+
     return Cereal(
-        name, brand, price, gram, Nutrition(protein, salt, carbohydrates, fat, fiber)
+        name,
+        brand,
+        {"nemlig": price},
+        gram,
+        is_original,
+        Nutrition(
+            protein=protein,
+            salt=salt,
+            carbohydrates=carbohydrates,
+            fat=fat,
+            fiber=fiber,
+        ),
     )
 
 
@@ -120,11 +136,12 @@ def __get_nutritions(browser):
 
 
 if __name__ == "__main__":
-    cereals = get_nemlig_page("Cornflakes")
+    cereals = get_nemlig_page("Cornflakes", "Kellogg's")
     for cereal in cereals:
         print(
             cereal.name,
             cereal.brand,
+            cereal.is_original,
             cereal.grams,
             cereal.price,
             cereal.nutrition.fat,

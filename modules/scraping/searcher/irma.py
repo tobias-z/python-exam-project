@@ -1,15 +1,15 @@
 from time import sleep
-from typing import Dict, List
+from typing import Dict, List, Tuple
 from concurrent.futures import ThreadPoolExecutor
 from bs4 import BeautifulSoup
 from lxml import etree
 
 from modules.scraping.cereal import Cereal, Nutrition
 from modules.scraping.searcher.browser import get_browser
-from modules.scraping.searcher.utils import make_float, remove_chars
+from modules.scraping.searcher.utils import get_original, make_float, remove_chars
 
 
-def get_irma_page(search_name: str) -> List[Cereal]:
+def get_irma_page(search_name: str, brand: str) -> List[Cereal]:
     browser = get_browser("https://mad.coop.dk/irma")
 
     # Find search field
@@ -28,13 +28,17 @@ def get_irma_page(search_name: str) -> List[Cereal]:
         )
     )
 
+    links_with_name_and_brand = map(lambda link: (link, search_name, brand), links)
+
     browser.close()
     threads = min(len(links), 3)
     with ThreadPoolExecutor(threads) as ex:
-        return list(ex.map(__get_single_page, links))
+        return list(ex.map(__get_single_page, links_with_name_and_brand))
 
 
-def __get_single_page(link: str) -> Cereal:
+def __get_single_page(params: Tuple[str, str, str]) -> Cereal:
+    link, search_name, the_brand = params
+
     browser = get_browser(link)
     sleep(3)
 
@@ -61,12 +65,15 @@ def __get_single_page(link: str) -> Cereal:
         html, "Protein", "Salt", "Kulhydrater", "Fedt", "Kostfibre"
     )
 
+    is_original = search_name + the_brand == name + brand
+
     browser.close()
     return Cereal(
         name,
         brand,
-        price,
+        {"irma": price},
         grams,
+        is_original,
         Nutrition(
             protein=nutritions.get("Protein"),
             salt=nutritions.get("Salt"),
@@ -89,11 +96,11 @@ def __get_nutritions(html, *names: str):
 
 
 if __name__ == "__main__":
-    cereals = get_irma_page("Cornflakes")
+    cereals = get_irma_page("Cornflakes", "something")
     for cereal in cereals:
         print(
-            cereal.name,
             cereal.brand,
+            cereal.name,
             cereal.grams,
             cereal.price,
             cereal.nutrition.fat,

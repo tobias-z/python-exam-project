@@ -10,33 +10,39 @@ def get_cereal(name: str, brand: str) -> List[Cereal]:
     """Finds a single cerial"""
     name = name.lower()
 
-    # get_nemlig_page
     callbacks = [get_foetex_page, get_irma_page, get_nemlig_page]
 
     def get_website(cb) -> List[Cereal]:
-        # Send brand aswell to add is_original propterty
-        return cb(name)
+        return cb(name, brand)
 
     with ThreadPoolExecutor(len(callbacks)) as ex:
         res = ex.map(get_website, callbacks)
 
-    ## put all similar items together price = {"føtex": 10, "nemlig": 20}
+    cereal_list = [*next(res), *next(res), *next(res)]
 
-    return [*res.__next__(), *res.__next__(), *res.__next__()]
+    result = []
+    for cereal in cereal_list:
+        for inner_c in cereal_list:
+            if cereal.name + cereal.brand == inner_c.name + inner_c.brand:
+                cereal.price = {**cereal.price, **inner_c.price}
+
+        result.append(cereal)
+
+    return result
 
 
 if __name__ == "__main__":
-    c = get_cereal("Musli", "something")
+    c = get_cereal("Musli", "Kellogg's")
     print(len(c))
-    for cereal in c:
+    for ce in c:
         print(
-            cereal.name,
-            cereal.brand,
-            cereal.grams,
-            cereal.price,
-            cereal.nutrition.fat,
-            cereal.nutrition.protein,
-            cereal.nutrition.carbohydrates,
-            cereal.nutrition.fiber,
-            cereal.nutrition.salt,
+            ce.name,
+            ce.brand,
+            ce.grams,
+            ce.price,
+            ce.nutrition.fat,
+            ce.nutrition.protein,
+            ce.nutrition.carbohydrates,
+            ce.nutrition.fiber,
+            ce.nutrition.salt,
         )

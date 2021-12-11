@@ -1,5 +1,6 @@
 from time import sleep
-from typing import List
+from typing import List, Tuple
+from typing_extensions import get_origin
 
 from bs4 import BeautifulSoup
 from concurrent.futures import ThreadPoolExecutor
@@ -7,12 +8,12 @@ from lxml import etree
 
 from modules.scraping.cereal import Cereal, Nutrition
 from modules.scraping.searcher.browser import get_browser
-from modules.scraping.searcher.utils import make_float, remove_chars
+from modules.scraping.searcher.utils import get_original, make_float, remove_chars
 
 ROOT_URL = "https://hjem.foetex.dk"
 
 
-def get_foetex_page(search_name: str) -> List[Cereal]:
+def get_foetex_page(search_name: str, brand: str) -> List[Cereal]:
     browser = get_browser(ROOT_URL)
 
     __accept_cookies(browser)
@@ -32,9 +33,13 @@ def get_foetex_page(search_name: str) -> List[Cereal]:
 
     browser.close()
 
+    links_with_name_and_brand = map(lambda link: (link, search_name, brand), links)
+
     threads = min(len(links), 3)
     with ThreadPoolExecutor(threads) as ex:
-        return list(filter(None, ex.map(__get_single_cereal, links)))
+        return list(
+            filter(None, ex.map(__get_single_cereal, links_with_name_and_brand))
+        )
 
 
 def __get_links(page_source) -> List[str]:
@@ -48,7 +53,8 @@ def __get_links(page_source) -> List[str]:
     return links
 
 
-def __get_single_cereal(link: str) -> Cereal:
+def __get_single_cereal(params: Tuple[str, str, str]) -> Cereal:
+    link, search_name, the_brand = params
     browser = __get_correct_browser_state(link)
     soup = BeautifulSoup(browser.page_source, "html.parser")
     dom = etree.HTML(str(soup))
@@ -60,6 +66,10 @@ def __get_single_cereal(link: str) -> Cereal:
     brand = dom.xpath(
         '//*[@id="__next"]/div[1]/main/div[1]/div[1]/section[2]/article/div[4]/span/strong'
     )[0].text
+
+    if brand == "Kellogg's Cornflakes":
+        brand = "Kellogg's"
+
     price = make_float(
         dom.xpath(
             '//*[@id="__next"]/div[1]/main/div[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div/span/text()[4]'
@@ -86,12 +96,14 @@ def __get_single_cereal(link: str) -> Cereal:
     carbohydrates = __get_nutrition(html, "Kulhydrater")
     fiber = __get_nutrition(html, "Kostfibre")
     salt = __get_nutrition(html, "Salt")
+    is_original = search_name + the_brand == name + brand
 
     return Cereal(
         name,
         brand,
-        price,
+        {"føtex": price},
         grams,
+        is_original,
         Nutrition(protein, carbohydrates, fiber, fat, salt),
     )
 
@@ -130,7 +142,7 @@ def __get_nutrition(tbody_html, name: str):
 
 
 if __name__ == "__main__":
-    cereals = get_foetex_page("muesli")
+    cereals = get_foetex_page("muesli", "something")
     for cereal in cereals:
         print(
             cereal.name,
