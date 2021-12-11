@@ -29,7 +29,7 @@ def get_irma_page(search_name: str) -> List[Cereal]:
     )
 
     browser.close()
-    threads = min(len(links), 6)
+    threads = min(len(links), 4)
     with ThreadPoolExecutor(threads) as ex:
         return list(ex.map(__get_single_page, links))
 
@@ -89,17 +89,16 @@ def __get_nutritions(html, *names: str):
 
 
 if __name__ == "__main__":
-    cereal = __get_single_page(
-        "https://mad.coop.dk/kolonial/morgenmad-og-mellemmaltid/cornflakes/kelloggs-kelloggs-cornflakes-p-5738001092490"
-    )
-    print(
-        cereal.name,
-        cereal.brand,
-        cereal.grams,
-        cereal.price,
-        cereal.nutrition.fat,
-        cereal.nutrition.protein,
-        cereal.nutrition.carbohydrates,
-        cereal.nutrition.fiber,
-        cereal.nutrition.salt,
-    )
+    cereals = get_irma_page("Cornflakes")
+    for cereal in cereals:
+        print(
+            cereal.name,
+            cereal.brand,
+            cereal.grams,
+            cereal.price,
+            cereal.nutrition.fat,
+            cereal.nutrition.protein,
+            cereal.nutrition.carbohydrates,
+            cereal.nutrition.fiber,
+            cereal.nutrition.salt,
+        )

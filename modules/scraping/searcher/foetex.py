@@ -15,9 +15,7 @@ ROOT_URL = "https://hjem.foetex.dk"
 def get_foetex_page(search_name: str) -> List[Cereal]:
     browser = get_browser(ROOT_URL)
 
-    # click on cookie accept
-    elem = browser.find_element_by_xpath('//*[@id="coiPage-1"]/div[2]/div[1]/button[3]')
-    elem.click()
+    __accept_cookies(browser)
 
     sleep(3)
 
@@ -34,7 +32,7 @@ def get_foetex_page(search_name: str) -> List[Cereal]:
 
     browser.close()
 
-    threads = min(len(links), 6)
+    threads = min(len(links), 4)
     with ThreadPoolExecutor(threads) as ex:
         return list(filter(None, ex.map(__get_single_cereal, links)))
 
@@ -67,11 +65,13 @@ def __get_single_cereal(link: str) -> Cereal:
             '//*[@id="__next"]/div[1]/main/div[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div/span/text()[4]'
         )[0]
     )
+    # price = 1
     grams = make_float(
         dom.xpath(
             '//*[@id="__next"]/div[1]/main/div[1]/div[1]/section[2]/article/div[4]/span/text()[2]'
         )[0]
     )
+    # grams = 2
 
     tbody = dom.xpath(
         '//*[@id="__next"]/div[1]/main/div[1]/div[1]/section[2]/div[2]/section[2]/div/div/div/table/tbody'
@@ -96,11 +96,15 @@ def __get_single_cereal(link: str) -> Cereal:
     )
 
 
+def __accept_cookies(browser):
+    elem = browser.find_element_by_xpath('//*[@id="coiPage-1"]/div[2]/div[1]/button[3]')
+    if elem.is_displayed():
+        elem.click()
+
+
 def __get_correct_browser_state(link: str):
     browser = get_browser(link)
-    browser.find_element_by_xpath(
-        '//*[@id="coiPage-1"]/div[2]/div[1]/button[3]'
-    ).click()
+    __accept_cookies(browser)
     sleep(2)
     browser.find_element_by_xpath(
         '//*[@id="__next"]/div[1]/main/div[1]/div[1]/section[2]/div[2]/section[2]/button'
@@ -133,8 +137,8 @@ if __name__ == "__main__":
             cereal.brand,
             cereal.grams,
             cereal.price,
-            cereal.nutrition.fat,
             cereal.nutrition.protein,
+            cereal.nutrition.fat,
             cereal.nutrition.carbohydrates,
             cereal.nutrition.fiber,
             cereal.nutrition.salt,

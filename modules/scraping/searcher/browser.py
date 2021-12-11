@@ -11,6 +11,7 @@ def get_browser(url: str):
     )
     options = Options()
     options.headless = True
+    options.add_argument("--incognito")
     browser = webdriver.Firefox(options=options)
     browser.get(url)
     browser.implicitly_wait(2)
