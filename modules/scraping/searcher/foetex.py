@@ -98,13 +98,20 @@ def __get_single_cereal(params: Tuple[str, str, str]) -> Cereal:
     salt = __get_nutrition(html, "Salt")
     is_original = search_name + the_brand == name + brand
 
+    calories = float(
+        __get_nutrition(html, "Energi")
+        .split("/")[1]
+        .replace("kcal", "")
+        .replace(".", "")
+    )
+
     return Cereal(
         name,
         brand,
         {"føtex": price},
         grams,
         is_original,
-        Nutrition(protein, carbohydrates, fiber, fat, salt),
+        Nutrition(protein, carbohydrates, fiber, fat, salt, calories),
     )
 
 
@@ -138,11 +145,14 @@ def __get_nutrition(tbody_html, name: str):
         if text == name:
             stop = True
 
+    if name == "Energi":
+        return items[-1]
+
     return make_float(remove_chars(items[-1]))
 
 
 if __name__ == "__main__":
-    cereals = get_foetex_page("muesli", "something")
+    cereals = get_foetex_page("Cornflakes", "something")
     for cereal in cereals:
         print(
             cereal.name,
@@ -154,4 +164,5 @@ if __name__ == "__main__":
             cereal.nutrition.carbohydrates,
             cereal.nutrition.fiber,
             cereal.nutrition.salt,
+            cereal.nutrition.calories,
         )

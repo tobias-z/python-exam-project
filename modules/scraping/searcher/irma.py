@@ -62,8 +62,9 @@ def __get_single_page(params: Tuple[str, str, str]) -> Cereal:
     html = etree.HTML(outer_div)
 
     nutritions = __get_nutritions(
-        html, "Protein", "Salt", "Kulhydrater", "Fedt", "Kostfibre"
+        html, "Protein", "Salt", "Kulhydrater", "Fedt", "Kostfibre", "Energi"
     )
+    calories = make_float(nutritions.get("Energi").split("/")[1].replace("kcal", ""))
 
     is_original = search_name + the_brand == name + brand
 
@@ -80,6 +81,7 @@ def __get_single_page(params: Tuple[str, str, str]) -> Cereal:
             carbohydrates=nutritions.get("Kulhydrater"),
             fat=nutritions.get("Fedt"),
             fiber=nutritions.get("Kostfibre"),
+            calories=calories,
         ),
     )
 
@@ -89,9 +91,10 @@ def __get_nutritions(html, *names: str):
     for item in html.iter("div"):
         for name in names:
             if name in item.text:
-                nutitions.setdefault(
-                    name, make_float(remove_chars(item.find("span").text))
-                )
+                value = item.find("span").text
+                if name != "Energi":
+                    value = make_float(remove_chars(value))
+                nutitions.setdefault(name, value)
     return nutitions
 
 
@@ -108,4 +111,5 @@ if __name__ == "__main__":
             cereal.nutrition.carbohydrates,
             cereal.nutrition.fiber,
             cereal.nutrition.salt,
+            cereal.nutrition.calories,
         )
