@@ -58,11 +58,8 @@ def __get_single_cereal(params: Tuple[str, str, str]) -> Cereal:
     maerke = browser.find_element_by_xpath(
         '//*[@id="page-content"]/div/productdetailpage/section/div[1]/render-partial/div/product-detail/accordion-group/div/div/div[2]/accordion/div[2]/content/div[1]/span[2]'
     ).get_attribute("innerText")
-    pris1 = browser.find_element_by_xpath(
-        '//*[@id="page-content"]/div/productdetailpage/section/div[1]/render-partial/div/product-detail/accordion-group/div/div/div[2]/div[3]/div[1]/pricecontainer/div/div[2]/span'
-    ).get_attribute("innerHTML")
-    pris2 = browser.find_element_by_xpath(
-        '//*[@id="page-content"]/div/productdetailpage/section/div[1]/render-partial/div/product-detail/accordion-group/div/div/div[2]/div[3]/div[1]/pricecontainer/div/div[2]/sup'
+    pris = browser.find_element_by_xpath(
+        '//*[@id="page-content"]/div/productdetailpage/section/div[1]/render-partial/div/product-detail/accordion-group/div/div/div[2]/div[3]/div[1]/pricecontainer-unitprice/div/span[2]'
     ).get_attribute("innerHTML")
     gram = browser.find_element_by_xpath(
         '//*[@id="page-content"]/div/productdetailpage/section/div[1]/render-partial/div/product-detail/accordion-group/div/div/div[2]/h2'
@@ -81,11 +78,13 @@ def __get_single_cereal(params: Tuple[str, str, str]) -> Cereal:
     else:
         fiber = 0
 
+    calories = make_float(nutritions.get("Energi").split("/")[1].replace("kcal", ""))
+
     browser.close()
 
     name = navn
     brand = maerke
-    price = float(pris1 + "." + pris2)
+    price = make_float(pris)
     gram = float(gram.split(" ")[0])
 
     is_original = search_name + the_brand == name + brand
@@ -102,6 +101,7 @@ def __get_single_cereal(params: Tuple[str, str, str]) -> Cereal:
             carbohydrates=carbohydrates,
             fat=fat,
             fiber=fiber,
+            calories=calories
         ),
     )
 
@@ -149,4 +149,5 @@ if __name__ == "__main__":
             cereal.nutrition.carbohydrates,
             cereal.nutrition.fiber,
             cereal.nutrition.salt,
+            cereal.nutrition.calories,
         )
