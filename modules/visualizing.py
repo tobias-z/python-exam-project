@@ -10,10 +10,11 @@ def show_cereal_prices(cereals, title="Cereal Prices"):
     cereals: List of Cereal objects
     title: String. Title of the bar chart. Default 'Cereal Prices'
     """
+    stores = __get_stores(cereals)
+    prices_in_stores = __get_prices_with_cereal_name(stores, cereals)
     names = __get_cereal_names(cereals)
-    prices = [cereal.price for cereal in cereals]
-    __plot_prices(names, prices, title)
-
+    __plot_prices(names, prices_in_stores, title)
+    
 def show_prices_per_100g(cereals, title="Cereal Prices per 100 grams"):
     """Creates and displays a bar chart over cereal prices per 100 grams
     
@@ -21,10 +22,10 @@ def show_prices_per_100g(cereals, title="Cereal Prices per 100 grams"):
     cereals: List of Cereal objects
     title: String. Title of the bar chart. Default 'Cereal Prices per 100 grams'
     """
-    cereals_dict = __get_price_per_100g(cereals)
-    names = cereals_dict.keys()
-    prices = cereals_dict.values()
-    __plot_prices(names, prices, title)
+    stores = __get_stores(cereals)
+    prices_in_stores = __get_prices_with_cereal_name(stores, cereals, True)
+    names = __get_cereal_names(cereals)
+    __plot_prices(names, prices_in_stores, title)
     
 def show_nutrition(cereals):
     """Creates and displays a dataframe over the nutritional content
@@ -66,14 +67,22 @@ def show_pct_of_recommended_nutrition(cereal, sex):
     labels = 'Calories', 'Protein', '  Carbohydrates', 'Fiber', 'Fat', 'Salt'
     title = "Percentage of %s %s's Nutrional Content compared to Daily Recommended Intake" % (cereal.brand.capitalize(),
                                                                                               cereal.name.capitalize())
-    __plot_percentage(pcts, labels, title)
+    __plot_percentage(pcts, labels, title) 
     
+def __plot_prices(names, prices_in_stores, title):
+    stores = [key for key in prices_in_stores.keys()] 
+    prices = __get_prices_without_cereal_name(prices_in_stores)
     
-def __plot_prices(names, prices, title):
-    plt.bar(names, prices, width=0.5, align='center')
+    x_axis = np.arange(len(names))
+    width = 0.3
+    column_widths = [0 + (width*idx) for idx in x_axis]
+    for idx in x_axis:
+        plt.bar(x_axis + column_widths[idx], prices[idx], width, label=stores[idx]) 
     plt.ylabel('Price in DKK', fontsize=10)
-    plt.xticks(rotation=15, horizontalalignment='right',fontweight='light')
+    plt.grid(axis='y', color='grey')
+    plt.xticks(x_axis, names, rotation=15, horizontalalignment='right',fontweight='light')
     plt.title(title)
+    plt.legend()
     plt.show()
     
 def __plot_percentage(pcts, labels, title):
@@ -86,9 +95,25 @@ def __plot_percentage(pcts, labels, title):
 def __get_cereal_names(cereals):
     return [cereal.brand + " " + cereal.name for cereal in cereals]
 
-def __get_price_per_100g(cereals):
-    names = __get_cereal_names(cereals)
-    return {name: (cereal.price/cereal.grams)*100 for name in names for cereal in cereals}
+def __get_stores(cereals):
+    return set([key for cereal in cereals for key in cereal.prices.keys()])
+
+def __get_prices_with_cereal_name(stores, cereals, per_100g=False):
+    prices_in_stores = {store: {} for store in stores}
+    for cereal in cereals:
+        for key, value in cereal.prices.items():
+            if not per_100g:
+                prices_in_stores[key].update({cereal.brand + " " + cereal.name: value})
+            elif per_100g:
+                prices_in_stores[key].update({cereal.brand + " " + cereal.name: (value/cereal.grams)*100})
+    return prices_in_stores
+
+def __get_prices_without_cereal_name(prices_with_names):
+    prices = []
+    for value in prices_with_names.values():
+        temp = [price for price in value.values()]
+        prices.append(temp)
+    return prices
 
 def __get_nutrition_data(cereals):
     names = __get_cereal_names(cereals)
