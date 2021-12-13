@@ -32,7 +32,7 @@ def get_cereal(name: str, brand: str) -> List[Cereal]:
 
 
 if __name__ == "__main__":
-    c = get_cereal("Musli", "Kellogg's")
+    c = get_cereal("Cornflakes", "Kellogg's")
     print(len(c))
     for ce in c:
         print(
