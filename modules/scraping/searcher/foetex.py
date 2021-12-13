@@ -15,9 +15,7 @@ ROOT_URL = "https://hjem.foetex.dk"
 
 def get_foetex_page(search_name: str, brand: str) -> List[Cereal]:
     browser = get_browser(ROOT_URL)
-
     __accept_cookies(browser)
-
     sleep(3)
 
     # Find search field
