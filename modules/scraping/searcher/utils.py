@@ -1,4 +1,4 @@
-from modules.scraping.cereal import Cereal
+from modules.cereal import Cereal
 
 
 def make_float(danish_number: str) -> float:

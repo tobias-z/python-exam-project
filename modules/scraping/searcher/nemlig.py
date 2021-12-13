@@ -3,7 +3,7 @@ from time import sleep
 from lxml import etree
 from concurrent.futures import ThreadPoolExecutor
 from modules.scraping.searcher.utils import get_original, make_float, remove_chars
-from modules.scraping.cereal import Cereal, Nutrition
+from modules.cereal import Cereal, Nutrition
 from modules.scraping.searcher.browser import get_browser
 
 

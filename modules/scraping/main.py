@@ -1,6 +1,6 @@
 from typing import List
 from concurrent.futures import ThreadPoolExecutor
-from modules.scraping.cereal import Cereal
+from modules.cereal import Cereal
 from modules.scraping.searcher.foetex import get_foetex_page
 from modules.scraping.searcher.irma import get_irma_page
 from modules.scraping.searcher.nemlig import get_nemlig_page

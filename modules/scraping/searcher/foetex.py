@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 from concurrent.futures import ThreadPoolExecutor
 from lxml import etree
 
-from modules.scraping.cereal import Cereal, Nutrition
+from modules.cereal import Cereal, Nutrition
 from modules.scraping.searcher.browser import get_browser
 from modules.scraping.searcher.utils import get_original, make_float, remove_chars
 
