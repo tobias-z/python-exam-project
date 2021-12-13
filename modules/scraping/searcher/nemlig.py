@@ -138,16 +138,4 @@ def __get_nutritions(browser):
 if __name__ == "__main__":
     cereals = get_nemlig_page("Cornflakes", "Kellogg's")
     for cereal in cereals:
-        print(
-            cereal.name,
-            cereal.brand,
-            cereal.is_original,
-            cereal.grams,
-            cereal.price,
-            cereal.nutrition.fat,
-            cereal.nutrition.protein,
-            cereal.nutrition.carbohydrates,
-            cereal.nutrition.fiber,
-            cereal.nutrition.salt,
-            cereal.nutrition.calories,
-        )
+        print(cereal)

@@ -101,15 +101,4 @@ def __get_nutritions(html, *names: str):
 if __name__ == "__main__":
     cereals = get_irma_page("Cornflakes", "something")
     for cereal in cereals:
-        print(
-            cereal.brand,
-            cereal.name,
-            cereal.grams,
-            cereal.price,
-            cereal.nutrition.fat,
-            cereal.nutrition.protein,
-            cereal.nutrition.carbohydrates,
-            cereal.nutrition.fiber,
-            cereal.nutrition.salt,
-            cereal.nutrition.calories,
-        )
+        print(cereal)

@@ -32,17 +32,7 @@ def get_cereal(name: str, brand: str) -> List[Cereal]:
 
 
 if __name__ == "__main__":
-    c = get_cereal("Musli", "Kellogg's")
-    print(len(c))
-    for ce in c:
-        print(
-            ce.name,
-            ce.brand,
-            ce.grams,
-            ce.price,
-            ce.nutrition.fat,
-            ce.nutrition.protein,
-            ce.nutrition.carbohydrates,
-            ce.nutrition.fiber,
-            ce.nutrition.salt,
-        )
+    cereals = get_cereal("Musli", "Kellogg's")
+    print(len(cereals))
+    for cereal in cereals:
+        print(cereal)

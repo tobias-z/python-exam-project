@@ -154,15 +154,4 @@ def __get_nutrition(tbody_html, name: str):
 if __name__ == "__main__":
     cereals = get_foetex_page("Cornflakes", "something")
     for cereal in cereals:
-        print(
-            cereal.name,
-            cereal.brand,
-            cereal.grams,
-            cereal.price,
-            cereal.nutrition.protein,
-            cereal.nutrition.fat,
-            cereal.nutrition.carbohydrates,
-            cereal.nutrition.fiber,
-            cereal.nutrition.salt,
-            cereal.nutrition.calories,
-        )
+        print(cereal)
