@@ -13,6 +13,12 @@ class Nutrition:
     def get_nutrition_as_list(self):
         """Returns the nutritional content as a list"""
         return [self.calories, self.protein, self.carbohydrates, self.fiber, self.fat, self.salt]
+    
+    def __repr__(self):
+        return 'Nutrition(%d, %d, %d, %d, %d, %d)' % (self.calories, self.protein, self.carbohydrates, self.fiber, self.fat, self.salt)
+        
+    def __str__(self):
+        return 'Nutritional content: Calories: %d kcal. Protein: %d g. Carbohydrates: %d g. Fiber: %d g. Fat: %d g. Salt: %d g.' % (self.calories, self.protein, self.carbohydrates, self.fiber, self.fat, self.salt)
         
 class Cereal:
     """Cereal"""
@@ -27,5 +33,8 @@ class Cereal:
         self.is_original = is_original
         self.nutrition = nutrition
         
+    def __repr__(self):
+        return 'Cereal(%s, %s, %s, %s, %s, %s)' % (self.name, self.brand, self.price, self.grams, self.is_original, self.nutrition)
+        
     def __str__(self):
-        return 'Cereal: %s %s costs: %r.\nNutrition: %r' % (self.brand, self.name, self.price, self.nutrition)
+        return '%s %s. %d grams. Costs: %r. Nutrition: %r' % (self.brand, self.name, self.grams, self.price, self.nutrition)
