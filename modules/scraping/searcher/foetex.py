@@ -98,12 +98,7 @@ def __get_single_cereal(params: Tuple[str, str, str]) -> Cereal:
     salt = __get_nutrition(html, "Salt")
     is_original = search_name + the_brand == name + brand
 
-    calories = float(
-        __get_nutrition(html, "Energi")
-        .split("/")[1]
-        .replace("kcal", "")
-        .replace(".", "")
-    )
+    calories = float(__get_nutrition(html, "Energi").split("/")[0].replace(".", ""))
 
     return Cereal(
         name,
