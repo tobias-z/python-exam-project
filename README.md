@@ -31,6 +31,7 @@ pip3 install -r requirements.txt
 
 ### Plotting
 Status: Completed 
+
 We want to visualize the following:
 - The prices of cereals at the different stores
 - Prices per 100 grams for easier comparison between cereal products
