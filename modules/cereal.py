@@ -17,12 +17,12 @@ class Nutrition:
 class Cereal:
     """Cereal"""
     
-    def __init__(self, name, brand, prices, grams, is_original, nutrition):
+    def __init__(self, name, brand, price, grams, is_original, nutrition):
         """Initializes cereal with name, brand, prices, grams and nutrition.
-        Prices is a dictionary with store: price_in_store"""
+        Price is a dictionary with store: price_in_store"""
         self.name = name
         self.brand = brand
-        self.prices = prices
+        self.price = price
         self.grams = grams
         self.is_original = is_original
         self.nutrition = nutrition

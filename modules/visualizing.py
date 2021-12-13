@@ -96,12 +96,12 @@ def __get_cereal_names(cereals):
     return [cereal.brand + " " + cereal.name for cereal in cereals]
 
 def __get_stores(cereals):
-    return set([key for cereal in cereals for key in cereal.prices.keys()])
+    return set([key for cereal in cereals for key in cereal.price.keys()])
 
 def __get_prices_with_cereal_name(stores, cereals, per_100g=False):
     prices_in_stores = {store: {} for store in stores}
     for cereal in cereals:
-        for key, value in cereal.prices.items():
+        for key, value in cereal.price.items():
             if not per_100g:
                 prices_in_stores[key].update({cereal.brand + " " + cereal.name: value})
             elif per_100g:
