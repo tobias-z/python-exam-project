@@ -133,16 +133,17 @@ def __get_nutrition(tbody_html, name: str):
         text = item.text
         items.append(text)
         if stop:
-            break
+            if name == "Energi":
+                return items[-1]
+            return make_float(remove_chars(items[-1]))
 
         if text == name:
             stop = True
 
-    if name == "Energi":
-        return items[-1]
-
-    return make_float(remove_chars(items[-1]))
-
+    
+  
+    return 0
+    
 
 if __name__ == "__main__":
     cereals = get_foetex_page("Cornflakes", "something")
