@@ -76,8 +76,10 @@ def __plot_prices(names, prices_in_stores, title):
     x_axis = np.arange(len(names))
     width = 0.3
     column_widths = [0 + (width*idx) for idx in x_axis]
-    for idx in x_axis:
-        plt.bar(x_axis + column_widths[idx], prices[idx], width, label=stores[idx]) 
+    
+    plt.bar(x_axis + column_widths[0], prices[0], width, label=stores[0]) 
+    plt.bar(x_axis + column_widths[1], prices[1], width, label=stores[1])
+    plt.bar(x_axis + column_widths[2], prices[2], width, label=stores[2])
     plt.ylabel('Price in DKK', fontsize=10)
     plt.grid(axis='y', color='grey')
     plt.xticks(x_axis, names, rotation=15, horizontalalignment='right',fontweight='light')
