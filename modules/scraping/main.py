@@ -10,6 +10,7 @@ def get_cereal(name: str, brand: str) -> List[Cereal]:
     """Finds a single cerial"""
     name = name.lower()
 
+    # callbacks = [get_irma_page, get_nemlig_page]
     callbacks = [get_foetex_page, get_irma_page, get_nemlig_page]
 
     def get_website(cb) -> List[Cereal]:
@@ -18,6 +19,7 @@ def get_cereal(name: str, brand: str) -> List[Cereal]:
     with ThreadPoolExecutor(len(callbacks)) as ex:
         res = ex.map(get_website, callbacks)
 
+    # cereal_list = [*next(res), *next(res)]
     cereal_list = [*next(res), *next(res), *next(res)]
 
     result = []

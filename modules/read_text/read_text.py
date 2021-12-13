@@ -1,15 +1,10 @@
 import cv2
 import pytesseract
-import matplotlib.pyplot as plt
 import numpy as np
-import nltk as nltk
+import nltk
 import pandas as pd
 from collections import Counter
-
-import numpy as np
-
-
-from modules.read_text import filters as filter
+from modules.read_text import filters
 
 cereal_words = [
     "havregryn",
@@ -35,8 +30,9 @@ brand_words = [
 ]
 
 
-def get_txt(img):
-    grey = filter.get_grayscale(img)
+def get_txt(file_name):
+    img = cv2.imread(file_name)
+    grey = filters.get_grayscale(img)
     word_set = get_word_set(grey)
     cereral_word_set = get_pick_words(word_set, cereal_words)
     brand_set = get_pick_words(word_set, brand_words)
@@ -59,7 +55,7 @@ def isword(word):
 def get_word_set(img):
     words = set()
     for thres_value in range(25, 255, 10):
-        thres = filter.thresholding(img, thres_value)
+        thres = filters.thresholding(img, thres_value)
         thres_txt = pytesseract.image_to_string(thres, lang="dan", config="--psm 11")
         txt = thres_txt.split()
         these_words = set([word.lower() for word in txt if isword(word)])
