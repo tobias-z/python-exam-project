@@ -16,6 +16,9 @@ Finally, we plot the found data to make it easy to see what the different cereal
 - `numpy`
 - `pandas`
 - `matplotlib.pyplot`
+- `pytesseract`
+- `nltk`
+- `opencv`
 - `Selenium`
 - `Beautiful Soup`
 - `lxml`
@@ -56,6 +59,9 @@ The problem was infrequent.
 
 ### Plotting
 During the process, what needed to be plotted and how it should be plotted has changed. This meant that I (Caroline) have spent time plotting as pie charts and with multiple bar charts in one, but as the data I received from web scraping doesn't match well with how I imagined, those charts have been removed. 
+
 I was particually proud of the multiple bar chart, which was instead of multiple bar charts for `show_price` and `show_price_per_100g`, but the products in our different stores aren't as similar as we had first expected, and therefore, I couldn't get the cereal data to fit in a single bar chart. 
+  
 I chose to remove the pie chart, which I had created to show the nutrional content in one specific cereal in percentage of daily nutrition, because it didn't have the decided effect. It created slices with percent values compared to the whole pie, which wasn't what I wanted. Instead a opted for a single bar chart. At the time it was created, the other bar charts were still with multiple colours, so it didn't look as similar as it does now.
+  
 I do think that the `pandas DataFrame` is the most visually appealing way of showing the nutritional content data.
