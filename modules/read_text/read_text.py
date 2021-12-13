@@ -1,4 +1,3 @@
-from typing import final
 import cv2
 import pytesseract
 import matplotlib.pyplot as plt

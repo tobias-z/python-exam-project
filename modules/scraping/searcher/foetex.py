@@ -138,6 +138,7 @@ def __get_nutrition(tbody_html, name: str):
     stop = False
     for item in tbody_html.iter("span"):
         text = item.text
+        
         items.append(text)
         if stop:
             break
@@ -146,7 +147,9 @@ def __get_nutrition(tbody_html, name: str):
             stop = True
 
     if name == "Energi":
-        return items[-1]
+        return items[1]
+
+    print(items)
 
     return make_float(remove_chars(items[-1]))
 
