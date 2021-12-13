@@ -12,8 +12,8 @@ import numpy as np
 
 from modules.read_text import filters as filter
 
-cereal_words=['havregryn','finvalsede','grovvalsede','cornflakes','granola','økologisk','mysli','glutenfri','hindbær','kakao','dadel','kokos']
-brand_words=['nestle',"kellogs's","vores","kornkammeret",'quaker','nemlig','axa','urtekram']
+cereal_words=['havregryn','finvalsede','grovvalsede','cornflakes','granola','økologisk','mysli','glutenfri','frosties']
+brand_words=['nestle',"kellogs's","vores","kornkammeret",'quaker','nemlig','axa','urtekram','svansø']
 
 
 def get_txt(img):
