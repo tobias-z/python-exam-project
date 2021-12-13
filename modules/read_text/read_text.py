@@ -20,10 +20,7 @@ cereal_words = [
     "økologisk",
     "mysli",
     "glutenfri",
-    "hindbær",
-    "kakao",
-    "dadel",
-    "kokos",
+    "frosties",
 ]
 brand_words = [
     "nestle",
@@ -34,6 +31,7 @@ brand_words = [
     "nemlig",
     "axa",
     "urtekram",
+    "svansø",
 ]
 
 
