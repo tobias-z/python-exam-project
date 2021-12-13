@@ -18,6 +18,8 @@ List of used technologies
 
 ## Install
 pip3 install -r requirements.txt
+docker exec -it -u root notebookserver bash
+cp exam_project/dan.traineddata /usr/share/tesseract-ocr/4.00/tessdata/dan.traineddata
 
 ## Status
 Status (What has been done (and if anything: what was not done))
