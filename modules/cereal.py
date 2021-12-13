@@ -26,3 +26,6 @@ class Cereal:
         self.grams = grams
         self.is_original = is_original
         self.nutrition = nutrition
+        
+    def __str__(self):
+        return 'Cereal: %s %s costs: %r.\nNutrition: %r' % (self.brand, self.name, self.price, self.nutrition)
