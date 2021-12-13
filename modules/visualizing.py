@@ -77,9 +77,8 @@ def __plot_prices(names, prices_in_stores, title):
     width = 0.3
     column_widths = [0 + (width*idx) for idx in x_axis]
     
-    plt.bar(x_axis + column_widths[0], prices[0], width, label=stores[0]) 
-    plt.bar(x_axis + column_widths[1], prices[1], width, label=stores[1])
-    plt.bar(x_axis + column_widths[2], prices[2], width, label=stores[2])
+    for idx in x_axis:
+        plt.bar(x_axis + column_widths[idx], prices[idx], width, label=stores[idx]) 
     plt.ylabel('Price in DKK', fontsize=10)
     plt.grid(axis='y', color='grey')
     plt.xticks(x_axis, names, rotation=15, horizontalalignment='right',fontweight='light')
@@ -113,8 +112,7 @@ def __get_prices_with_cereal_name(stores, cereals, per_100g=False):
 def __get_prices_without_cereal_name(prices_with_names):
     prices = []
     for value in prices_with_names.values():
-        temp = [price for price in value.values()]
-        prices.append(temp)
+        prices.append([price for price in value.values()])
     return prices
 
 def __get_nutrition_data(cereals):
