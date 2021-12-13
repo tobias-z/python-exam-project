@@ -25,9 +25,9 @@ Finally, we plot the found data to make it easy to see what the different cereal
 - `concurrent.futures`
 
 ## Install
-pip3 install -r requirements.txt
-docker exec -it -u root notebookserver bash
-cp exam_project/dan.traineddata /usr/share/tesseract-ocr/4.00/tessdata/dan.traineddata
+- pip3 install -r requirements.txt
+- docker exec -it -u root notebookserver bash
+- cp exam_project/dan.traineddata /usr/share/tesseract-ocr/4.00/tessdata/dan.traineddata
 
 ## Status
 
