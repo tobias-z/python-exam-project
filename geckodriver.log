@@ -40282,3 +40282,343 @@ JavaScript error: resource://gre/modules/Sqlite.jsm, line 1059: Error: Sqlite.js
 
 ###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
 
+1639413667889	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "--incognito" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileI4CBhr"
+1639413667889	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "--incognito" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileBQTWld"
+*** You are running in headless mode.
+*** You are running in headless mode.
+[GFX1-]: glxtest: libpci missing
+[GFX1-]: glxtest: libpci missing
+1639413668095	Marionette	INFO	Marionette enabled
+1639413668095	Marionette	INFO	Marionette enabled
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileI4CBhr/search.json.mozlz4", (void 0)))
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileBQTWld/search.json.mozlz4", (void 0)))
+1639413668892	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "--incognito" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileJbzl2m"
+*** You are running in headless mode.
+1639413668986	Marionette	INFO	Listening on port 38415
+1639413669018	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1639413669021	Marionette	INFO	Listening on port 36605
+1639413669106	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: glxtest: libpci missing
+1639413669138	Marionette	INFO	Marionette enabled
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileJbzl2m/search.json.mozlz4", (void 0)))
+1639413669984	Marionette	INFO	Listening on port 39593
+1639413670007	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.nemlig.com/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=3&cb=830947338, line 1: unreachable code after return statement
+JavaScript warning: https://www.nemlig.com/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=3&cb=830947338, line 1: unreachable code after return statement
+JavaScript warning: https://www.nemlig.com/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=3&cb=830947338, line 1: unreachable code after return statement
+JavaScript warning: https://www.nemlig.com/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=3&cb=830947338 line 1 > eval, line 1: unreachable code after return statement
+JavaScript warning: https://www.nemlig.com/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=3&cb=830947338 line 1 > eval, line 1: unreachable code after return statement
+1639413675191	Marionette	INFO	Stopped listening on port 39593
+1639413677103	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "--incognito" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileDVqrU3"
+1639413677103	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "--incognito" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileD38Xvk"
+*** You are running in headless mode.
+*** You are running in headless mode.
+[GFX1-]: glxtest: libpci missing
+1639413677314	Marionette	INFO	Marionette enabled
+[GFX1-]: glxtest: libpci missing
+1639413677338	Marionette	INFO	Marionette enabled
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+1639413677838	Marionette	INFO	Stopped listening on port 36605
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileD38Xvk/search.json.mozlz4", (void 0)))
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileDVqrU3/search.json.mozlz4", (void 0)))
+1639413678315	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "--incognito" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileh3ufhM"
+1639413678315	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "--incognito" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileCgkhQP"
+*** You are running in headless mode.
+*** You are running in headless mode.
+1639413678449	Marionette	INFO	Stopped listening on port 38415
+1639413678455	Marionette	INFO	Listening on port 35849
+[GFX1-]: glxtest: libpci missing
+[GFX1-]: glxtest: libpci missing
+1639413678560	Marionette	INFO	Marionette enabled
+1639413678568	Marionette	INFO	Marionette enabled
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x390149,name=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x390149,name=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x390149,name=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x390149,name=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x390149,name=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x390149,name=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x390149,name=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x390149,name=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x230030,name=PBrowser::Msg___delete__) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x390078,name=PContent::Msg_DestroyBrowsingContextGroup) Closed channel: cannot send/recv
+
+[Parent 317783, IPC I/O Parent] WARNING: FileDescriptorSet destroyed with unconsumed descriptors: file /build/firefox-fXSvPi/firefox-94.0+build3/ipc/chromium/src/chrome/common/file_descriptor_set_posix.cc:19
+1639413678626	Marionette	INFO	Listening on port 40639
+1639413678729	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+1639413679028	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "--incognito" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileXIwJae"
+*** You are running in headless mode.
+[GFX1-]: glxtest: libpci missing
+1639413679242	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileh3ufhM/search.json.mozlz4", (void 0)))
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileCgkhQP/search.json.mozlz4", (void 0)))
+1639413679319	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "--incognito" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile3YeWLA"
+*** You are running in headless mode.
+[GFX1-]: glxtest: libpci missing
+1639413679613	Marionette	INFO	Marionette enabled
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileXIwJae/search.json.mozlz4", (void 0)))
+1639413679963	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1639413680044	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "--incognito" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileM0Rjcb"
+1639413680044	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "--incognito" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile85MPlj"
+*** You are running in headless mode.
+*** You are running in headless mode.
+1639413680271	Marionette	INFO	Listening on port 33359
+1639413680350	Marionette	INFO	Listening on port 37597
+1639413680407	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1639413680464	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+[GFX1-]: glxtest: libpci missing
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofile3YeWLA/search.json.mozlz4", (void 0)))
+[GFX1-]: glxtest: libpci missing
+1639413681133	Marionette	INFO	Marionette enabled
+1639413681181	Marionette	INFO	Marionette enabled
+1639413681741	Marionette	INFO	Listening on port 41857
+1639413681792	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofile85MPlj/search.json.mozlz4", (void 0)))
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileM0Rjcb/search.json.mozlz4", (void 0)))
+1639413683021	Marionette	INFO	Listening on port 44101
+1639413683128	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.nemlig.com/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=4&cb=51989726, line 1: unreachable code after return statement
+JavaScript warning: https://www.nemlig.com/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=4&cb=51989726, line 1: unreachable code after return statement
+JavaScript warning: https://www.nemlig.com/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=4&cb=51989726, line 1: unreachable code after return statement
+JavaScript warning: https://www.nemlig.com/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=4&cb=51989726 line 1 > eval, line 1: unreachable code after return statement
+JavaScript warning: https://www.nemlig.com/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=4&cb=51989726 line 1 > eval, line 1: unreachable code after return statement
+1639413684304	Marionette	INFO	Listening on port 39313
+1639413684462	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1639413684748	Marionette	INFO	Listening on port 35611
+1639413684851	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1639413686352	Marionette	INFO	Stopped listening on port 40639
+JavaScript warning: https://www.nemlig.com/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=6&cb=680634237, line 1: unreachable code after return statement
+JavaScript warning: https://www.nemlig.com/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=6&cb=680634237, line 1: unreachable code after return statement
+JavaScript warning: https://www.nemlig.com/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=6&cb=680634237, line 1: unreachable code after return statement
+JavaScript warning: https://www.nemlig.com/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=6&cb=680634237 line 1 > eval, line 1: unreachable code after return statement
+JavaScript warning: https://www.nemlig.com/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=6&cb=680634237 line 1 > eval, line 1: unreachable code after return statement
+JavaScript warning: https://www.nemlig.com/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=10&cb=2019280653, line 1: unreachable code after return statement
+JavaScript warning: https://www.nemlig.com/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=10&cb=2019280653, line 1: unreachable code after return statement
+JavaScript warning: https://www.nemlig.com/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=10&cb=2019280653 line 1 > eval, line 1: unreachable code after return statement
+1639413688172	Marionette	INFO	Stopped listening on port 35849
+1639413690032	Marionette	INFO	Stopped listening on port 41857
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x390149,name=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x390078,name=PContent::Msg_DestroyBrowsingContextGroup) Closed channel: cannot send/recv
+
+JavaScript error: resource://gre/modules/Sqlite.jsm, line 1059: Error: Sqlite.jsm has been shutdown. Cannot open connection to: /tmp/rust_mozprofileXIwJae/protections.sqlite
+[Parent 319299, IPC I/O Parent] WARNING: FileDescriptorSet destroyed with unconsumed descriptors: file /build/firefox-fXSvPi/firefox-94.0+build3/ipc/chromium/src/chrome/common/file_descriptor_set_posix.cc:19
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1639413691496	Marionette	INFO	Stopped listening on port 33359
+1639413691865	Marionette	INFO	Stopped listening on port 39313
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x390149,name=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x390078,name=PContent::Msg_DestroyBrowsingContextGroup) Closed channel: cannot send/recv
+
+[Parent 319708, IPC I/O Parent] WARNING: FileDescriptorSet destroyed with unconsumed descriptors: file /build/firefox-fXSvPi/firefox-94.0+build3/ipc/chromium/src/chrome/common/file_descriptor_set_posix.cc:19
+1639413692017	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "--incognito" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileensaTD"
+*** You are running in headless mode.
+1639413692067	Marionette	INFO	Stopped listening on port 37597
+console.error: PushServiceWebSocket: 
+  _beginWSSetup: Not in shutdown state! Current state
+  2
+1639413692218	Marionette	INFO	Stopped listening on port 35611
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x390149,name=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x390078,name=PContent::Msg_DestroyBrowsingContextGroup) Closed channel: cannot send/recv
+
+[GFX1-]: glxtest: libpci missing
+1639413692502	Marionette	INFO	Marionette enabled
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileensaTD/search.json.mozlz4", (void 0)))
+1639413693180	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "--incognito" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilefvSt9l"
+1639413693190	Marionette	INFO	Stopped listening on port 44101
+*** You are running in headless mode.
+[GFX1-]: glxtest: libpci missing
+1639413693544	Marionette	INFO	Marionette enabled
+1639413693664	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "--incognito" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile1QWPvw"
+*** You are running in headless mode.
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1639413693894	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "--incognito" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofiletPVg45"
+*** You are running in headless mode.
+1639413693930	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "--incognito" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileKJgYI8"
+*** You are running in headless mode.
+1639413694053	Marionette	INFO	Listening on port 34949
+[GFX1-]: glxtest: libpci missing
+1639413694112	Marionette	INFO	Marionette enabled
+1639413694149	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+[GFX1-]: glxtest: libpci missing
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilefvSt9l/search.json.mozlz4", (void 0)))
+[GFX1-]: glxtest: libpci missing
+1639413694447	Marionette	INFO	Marionette enabled
+1639413694485	Marionette	INFO	Marionette enabled
+1639413694792	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "--incognito" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofiled6r9SH"
+*** You are running in headless mode.
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofile1QWPvw/search.json.mozlz4", (void 0)))
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+[GFX1-]: glxtest: libpci missing
+1639413695379	Marionette	INFO	Marionette enabled
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofiletPVg45/search.json.mozlz4", (void 0)))
+1639413695588	Marionette	INFO	Listening on port 32871
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileKJgYI8/search.json.mozlz4", (void 0)))
+1639413695745	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofiled6r9SH/search.json.mozlz4", (void 0)))
+1639413696689	Marionette	INFO	Listening on port 41327
+1639413696750	Marionette	INFO	Listening on port 34051
+JavaScript warning: https://www.nemlig.com/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=4&cb=1809000464, line 1: unreachable code after return statement
+JavaScript warning: https://www.nemlig.com/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=4&cb=1809000464, line 1: unreachable code after return statement
+1639413696853	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.nemlig.com/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=4&cb=1809000464, line 1: unreachable code after return statement
+1639413696864	Marionette	INFO	Listening on port 39661
+JavaScript warning: https://www.nemlig.com/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=4&cb=1809000464 line 1 > eval, line 1: unreachable code after return statement
+JavaScript warning: https://www.nemlig.com/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=4&cb=1809000464 line 1 > eval, line 1: unreachable code after return statement
+1639413696904	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1639413696999	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1639413697977	Marionette	INFO	Listening on port 42109
+1639413698080	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.nemlig.com/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=6&cb=300677966, line 1: unreachable code after return statement
+JavaScript warning: https://www.nemlig.com/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=8&cb=528996448, line 1: unreachable code after return statement
+JavaScript warning: https://www.nemlig.com/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=8&cb=528996448, line 1: unreachable code after return statement
+JavaScript warning: https://www.nemlig.com/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=8&cb=528996448 line 1 > eval, line 1: unreachable code after return statement
+JavaScript warning: https://www.nemlig.com/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=8&cb=528996448 line 1 > eval, line 1: unreachable code after return statement
+1639413702883	Marionette	INFO	Stopped listening on port 34949
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x390149,name=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x6A0025,name=PNecko::Msg_RemoveRequestContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x390078,name=PContent::Msg_DestroyBrowsingContextGroup) Closed channel: cannot send/recv
+
+JavaScript error: resource://gre/modules/Sqlite.jsm, line 1059: Error: Sqlite.jsm has been shutdown. Cannot open connection to: /tmp/rust_mozprofileensaTD/protections.sqlite
+[Parent 320582, IPC I/O Parent] WARNING: FileDescriptorSet destroyed with unconsumed descriptors: file /build/firefox-fXSvPi/firefox-94.0+build3/ipc/chromium/src/chrome/common/file_descriptor_set_posix.cc:19
+1639413704705	Marionette	INFO	Stopped listening on port 41327
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x390078,name=PContent::Msg_DestroyBrowsingContextGroup) Closed channel: cannot send/recv
+
+JavaScript error: resource://gre/modules/Sqlite.jsm, line 1059: Error: Sqlite.jsm has been shutdown. Cannot open connection to: /tmp/rust_mozprofile1QWPvw/protections.sqlite
+[Parent 320871, IPC I/O Parent] WARNING: FileDescriptorSet destroyed with unconsumed descriptors: file /build/firefox-fXSvPi/firefox-94.0+build3/ipc/chromium/src/chrome/common/file_descriptor_set_posix.cc:19
+1639413705018	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "--incognito" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilehnrktu"
+*** You are running in headless mode.
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+[GFX1-]: glxtest: libpci missing
+1639413705460	Marionette	INFO	Marionette enabled
+1639413705912	Marionette	INFO	Stopped listening on port 39661
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilehnrktu/search.json.mozlz4", (void 0)))
+1639413706416	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "--incognito" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilebkcEV5"
+*** You are running in headless mode.
+[GFX1-]: glxtest: libpci missing
+1639413706872	Marionette	INFO	Marionette enabled
+1639413707056	Marionette	INFO	Stopped listening on port 34051
+1639413707062	Marionette	INFO	Stopped listening on port 32871
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 718: Error: Phase "Sqlite.jsm: wait until all connections are closed" is finished, it is too late to register completion condition "protections.sqlite#0: waiting for shutdown"
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 718: Error: Phase "Sqlite.jsm: wait until all connections are closed" is finished, it is too late to register completion condition "protections.sqlite#0: waiting for shutdown"
+1639413707282	Marionette	INFO	Listening on port 43611
+1639413707365	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilebkcEV5/search.json.mozlz4", (void 0)))
+1639413708356	Marionette	INFO	Listening on port 41749
+1639413708436	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1639413708452	Marionette	INFO	Stopped listening on port 42109
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+JavaScript warning: https://www.nemlig.com/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=4&cb=2011993907, line 1: unreachable code after return statement
+JavaScript warning: https://www.nemlig.com/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=4&cb=2011993907, line 1: unreachable code after return statement
+JavaScript warning: https://www.nemlig.com/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=4&cb=2011993907, line 1: unreachable code after return statement
+JavaScript warning: https://www.nemlig.com/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=4&cb=2011993907 line 1 > eval, line 1: unreachable code after return statement
+JavaScript warning: https://www.nemlig.com/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=4&cb=2011993907 line 1 > eval, line 1: unreachable code after return statement
+JavaScript warning: https://www.nemlig.com/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=4&cb=1576599804, line 1: unreachable code after return statement
+JavaScript warning: https://www.nemlig.com/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=4&cb=1576599804, line 1: unreachable code after return statement
+JavaScript warning: https://www.nemlig.com/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=4&cb=1576599804, line 1: unreachable code after return statement
+JavaScript warning: https://www.nemlig.com/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=4&cb=1576599804 line 1 > eval, line 1: unreachable code after return statement
+JavaScript warning: https://www.nemlig.com/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=4&cb=1576599804 line 1 > eval, line 1: unreachable code after return statement
+1639413713165	Marionette	INFO	Stopped listening on port 43611
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x390149,name=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x390078,name=PContent::Msg_DestroyBrowsingContextGroup) Closed channel: cannot send/recv
+
+JavaScript error: resource://gre/modules/Sqlite.jsm, line 1059: Error: Sqlite.jsm has been shutdown. Cannot open connection to: /tmp/rust_mozprofilehnrktu/protections.sqlite
+[Parent 322092, IPC I/O Parent] WARNING: FileDescriptorSet destroyed with unconsumed descriptors: file /build/firefox-fXSvPi/firefox-94.0+build3/ipc/chromium/src/chrome/common/file_descriptor_set_posix.cc:19
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1639413713928	Marionette	INFO	Stopped listening on port 41749
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x390149,name=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x390078,name=PContent::Msg_DestroyBrowsingContextGroup) Closed channel: cannot send/recv
+
+JavaScript error: resource://gre/modules/Sqlite.jsm, line 1059: Error: Sqlite.jsm has been shutdown. Cannot open connection to: /tmp/rust_mozprofilebkcEV5/protections.sqlite
+[Parent 322294, IPC I/O Parent] WARNING: FileDescriptorSet destroyed with unconsumed descriptors: file /build/firefox-fXSvPi/firefox-94.0+build3/ipc/chromium/src/chrome/common/file_descriptor_set_posix.cc:19
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
