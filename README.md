@@ -37,6 +37,7 @@ We want to visualize the following:
 - Prices per 100 grams for easier comparison between cereal products
 - The nutrional content in all found cereals 
 - The nutrional content in a specific cereal compared to how many percent it covers of a person's daily recommended nutrional intake
+
 And all of this has been plotted, or visualized in a different way.
 
 ## Challenges
