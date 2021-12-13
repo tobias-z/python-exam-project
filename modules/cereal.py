@@ -15,7 +15,7 @@ class Nutrition:
         return [self.calories, self.protein, self.carbohydrates, self.fiber, self.fat, self.salt]
     
     def __repr__(self):
-        return 'Nutrition(%d, %d, %d, %d, %d, %d)' % (self.calories, self.protein, self.carbohydrates, self.fiber, self.fat, self.salt)
+        return 'Nutrition(%r, %r, %r, %r, %r, %r)' % (self.calories, self.protein, self.carbohydrates, self.fiber, self.fat, self.salt)
         
     def __str__(self):
         return 'Nutritional content: Calories: %d kcal. Protein: %d g. Carbohydrates: %d g. Fiber: %d g. Fat: %d g. Salt: %d g.' % (self.calories, self.protein, self.carbohydrates, self.fiber, self.fat, self.salt)
@@ -25,7 +25,7 @@ class Cereal:
     
     def __init__(self, name, brand, price, grams, is_original, nutrition):
         """Initializes cereal with name, brand, prices, grams and nutrition.
-        Price is a dictionary with store: price_in_store"""
+        Price is a dictionary with store: price (price being per kg)"""
         self.name = name
         self.brand = brand
         self.price = price
@@ -33,8 +33,11 @@ class Cereal:
         self.is_original = is_original
         self.nutrition = nutrition
         
+    def get_brand_name(self):
+        return self.brand + " " + self.name
+        
     def __repr__(self):
-        return 'Cereal(%s, %s, %s, %s, %s, %s)' % (self.name, self.brand, self.price, self.grams, self.is_original, self.nutrition)
+        return 'Cereal(%r, %r, %r, %r, %r, %r)' % (self.name, self.brand, self.price, self.grams, self.is_original, self.nutrition)
         
     def __str__(self):
         return '%s %s. %d grams. Costs: %r. %r' % (self.brand, self.name, self.grams, self.price, self.nutrition)
