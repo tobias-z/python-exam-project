@@ -73,7 +73,7 @@ We experienced challenges with processing and memory capacity on our machines du
 It often led to stalling laptops and eventually a crashed program.
 
 Føtex scraping gave us a challenge with 'Accepting Cookies' from time-to-time.
-error message:
+error message: </br>
 " .. bg-background"> is not clickable at point (999,658) because another element `<div id="coiOverlay">` obscures it"</br>
 The problem was infrequent. 
 
