@@ -61,20 +61,21 @@ We have chosen to have a list of relevant words, and then compare if the found w
 
 ### Webscraping
 
-Initially we wanted to have 4 supermaked chains to lookup for image "Product & Brand" recognigtion:
+Initially we wanted to have 4 supermarket chains to lookup for image "Product & Brand" recognition.
 
 1. Irma,
 2. Nemlig,
 3. Føtex,
 4. Rema,
-   though as Rema's data-site-structure is very challenging for data we want to extract, the decision was to focus on 1, 2 & 3.
+   though as Rema's data-site-structure is very challenging for the data we want to extract, the decision was to focus on 1, 2 & 3.
 
-We experienced challenges with memory on our machines due to how much data had to be processed in many threads, which often led to stalling laptops, and eventually a crashed program.
+We experienced challenges with processing and memory capacity on our machines due to the amount of data that had to be processed in many threads. 
+It often led to stalling laptops and eventually a crashed program.
 
 Føtex scraping gave us a challenge with 'Accepting Cookies' from time-to-time.
 error message:
 " .. bg-background"> is not clickable at point (999,658) because another element <div id="coiOverlay"> obscures it"
-The problem was infrequent.
+The problem was infrequent. 
 
 ### Plotting
 
