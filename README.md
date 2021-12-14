@@ -74,7 +74,7 @@ It often led to stalling laptops and eventually a crashed program.
 
 Føtex scraping gave us a challenge with 'Accepting Cookies' from time-to-time.
 error message:
-" .. bg-background"> is not clickable at point (999,658) becauseanother element <div id="coiOverlay"> obscures it"
+" .. bg-background"> is not clickable at point (999,658) because another element `<div id="coiOverlay">` obscures it"
 The problem was infrequent. 
 
 ### Plotting
