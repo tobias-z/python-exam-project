@@ -69,8 +69,7 @@ Initially we wanted to have 4 supermarket chains to lookup for image "Product & 
 4. Rema,
    though as Rema's data-site-structure is very challenging for the data we want to extract, the decision was to focus on 1, 2 & 3.
 
-We experienced challenges with processing and memory capacity on our machines due to the amount of data that had to be processed in many threads. \n
-It often led to stalling laptops and eventually a crashed program.
+We experienced challenges with processing and memory capacity on our machines due to the amount of data that had to be processed in many threads.  It often led to stalling laptops and eventually a crashed program.
 
 Føtex scraping gave us a challenge with 'Accepting Cookies' from time-to-time.
 error message:
